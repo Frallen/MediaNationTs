@@ -38,8 +38,7 @@ export const useMain = defineStore('main', {
                 error,
                 data
             } = await useFetch(`${import.meta.env.DEV ? 'api' : 'https://api.forismatic.com/api/1.0/'}?method=getQuote&format=json&lang=${lang}`, {
-                method: 'POST',
-                ...(import.meta.env.DEV && {mode: "no-cors"}),
+                method: 'POST'
             })
             if (error.value) {
                 console.error(error.value)
