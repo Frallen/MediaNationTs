@@ -27,13 +27,16 @@
             {{ Text?.quoteText }}
           </div>
         </transition>
-        <div class="timer">{{ currentTime }}</div>
+        <div class="panel-body-action">
+          <div class="timer" :class="{'timer-active':!completed}">{{ currentTime }}</div>
+          <div class="button button-primary" @click="fetchText(checkedLang);resetInput()">Взять новый текст</div>
+        </div>
         <textarea class="input" id="text" @paste.prevent v-model="userInput" @input="checkInput" ref="textInput"
                   autofocus></textarea>
         <transition name="fade">
           <div v-show="completed" class="panel-body-result box">
-            <p>Time: {{ time }} seconds</p>
-            <p>Speed: {{ speed }} characters per minute</p>
+            <p>Время: {{ time }} секунд</p>
+            <p>Скорость: {{ speed }} символов в минуту</p>
           </div>
         </transition>
       </div>
@@ -169,12 +172,40 @@ watch(userInput, () => {
     textarea {
       resize: none;
       width: 100%;
-      height: 500px;
+      height: 300px;
+    }
+
+    &-action {
+      margin: 2em 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .timer {
+        text-align: center;
+        font-weight: 700;
+        font-size: 2em;
+        color: @black;
+
+        animation: timer-animation 1s infinite alternate;
+      }
+
+      .timer-active {
+        animation: timer-animation 1s infinite alternate;
+      }
     }
 
   }
 
 }
 
+@keyframes timer-animation {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.1);
+  }
+}
 
 </style>
