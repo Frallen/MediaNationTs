@@ -37,7 +37,7 @@ export const useMain = defineStore('main', {
                 isFetching,
                 error,
                 data
-            } = await useFetch(`${import.meta.env.DEV ? 'api' : 'http://api.forismatic.com/api/1.0/'}?method=getQuote&format=json&lang=${lang}`, {
+            } = await useFetch(`${import.meta.env.DEV ? 'api' : 'https://api.forismatic.com/api/1.0/'}?method=getQuote&format=json&lang=${lang}`, {
                 method: 'POST'
             })
             if (error.value) {
