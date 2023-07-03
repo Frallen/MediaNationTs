@@ -1,0 +1,121 @@
+@import "modern-normalize/modern-normalize.css";
+@import "_var";
+@import "_mixins";
+@import "_fonts";
+
+html {
+  font-size: 16px;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  padding: 0;
+  margin: 0;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.2s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.container {
+  padding: 0 10vw;
+  @media @xxl {
+    padding: 0 7vw;
+  }
+
+  @media @lg {
+    padding: 0 1.3em;
+  }
+  @media @md {
+    padding: 0 1em;
+  }
+  @media @sm {
+    padding: 0 0.5em;
+  }
+}
+
+.button {
+  .trs(0.3s);
+  text-align: center;
+  display: block;
+  .br(5px);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 23px;
+  text-decoration: none;
+  padding: 15px 25px;
+  width: fit-content;
+  cursor: pointer;
+  outline: none;
+  border: 1px solid transparent;
+}
+
+.button-primary {
+  background: @purple;
+  color: #fff;
+}
+
+.button-primary:hover {
+  .trs(0.3s);
+  background: none;
+  border: 1px solid @black;
+  color: @black;
+}
+
+
+.button-secondary {
+  background: transparent;
+  .trs(0.3s);
+  color: @black;
+  border: 1px solid @black;
+}
+
+.button-secondary:hover {
+  .trs(0.3s);
+  background: @purple;
+  color: #fff;
+}
+
+.input {
+  .br(5px);
+  outline: none;
+  display: block;
+  width: 100%;
+  padding: 15px 25px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 23px;
+  letter-spacing: 0.1em;
+  color: @gray;
+  border: 1px solid @gray;
+  .trs(0.3s);
+}
+
+
+.input:focus {
+  color: @black;
+  border: 1px solid @purple !important;
+  .trs(0.3s);
+}
+
+.box {
+  padding: 15px 10px;
+  background: #fff;
+  box-shadow: 0 3px 6px @black;
+  .br(10px);
+  overflow: hidden;
+}
